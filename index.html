@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Your Puzzle Book Generator License — Songlap Deals</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    background: #f4f6f7;
+    color: #1c2b33;
+    min-height: 100vh;
+  }
+  header {
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 55%, #2c5364 100%);
+    color: #ffffff;
+    text-align: center;
+    padding: 42px 18px 34px;
+  }
+  header .brand {
+    color: #ffd166;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  header h1 { font-size: 28px; line-height: 1.25; font-weight: 800; }
+  header p { margin-top: 10px; color: #cfdde3; font-size: 15px; }
+  main { max-width: 560px; margin: -18px auto 40px; padding: 0 14px; }
+  .card {
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 8px 28px rgba(15, 32, 39, 0.14);
+    padding: 30px 26px;
+    border-top: 5px solid #ffd166;
+  }
+  .card h2 { font-size: 22px; margin-bottom: 12px; color: #0f2027; }
+  .card p { font-size: 15.5px; line-height: 1.6; margin-bottom: 12px; }
+  .hidden { display: none; }
+  .spinner {
+    width: 42px; height: 42px; margin: 8px auto 16px;
+    border: 5px solid #e3ebee; border-top-color: #2c5364;
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .center { text-align: center; }
+  .code-box {
+    font-family: "Courier New", ui-monospace, monospace;
+    font-size: 30px; font-weight: 700; letter-spacing: 2px;
+    background: #0f2027; color: #ffd166;
+    border-radius: 10px;
+    padding: 18px 10px;
+    text-align: center;
+    margin: 16px 0 10px;
+    word-break: break-all;
+  }
+  .licensed-to { text-align: center; font-size: 16px; margin-bottom: 6px; }
+  .licensed-to strong { color: #0f2027; }
+  .btn {
+    display: block; width: 100%;
+    text-align: center; text-decoration: none;
+    font-size: 17px; font-weight: 700;
+    border: none; border-radius: 10px;
+    padding: 15px 18px; cursor: pointer;
+    margin: 14px 0 6px;
+  }
+  .btn-gold { background: #ffd166; color: #0f2027; }
+  .btn-gold:hover { background: #ffca3a; }
+  .btn-teal { background: #2c5364; color: #ffffff; }
+  .btn-teal:hover { background: #203a43; }
+  .btn-small { width: auto; display: inline-block; padding: 9px 20px; font-size: 14px; margin: 4px 0 10px; }
+  .copy-wrap { text-align: center; }
+  .copy-note { font-size: 13px; color: #2e7d32; min-height: 18px; text-align: center; }
+  ol.steps { margin: 14px 0 6px 22px; }
+  ol.steps li { font-size: 15.5px; line-height: 1.6; margin-bottom: 8px; }
+  .note {
+    background: #fdf6e0; border: 1px solid #ffd166; border-radius: 10px;
+    padding: 12px 14px; font-size: 14.5px; line-height: 1.55; margin-top: 16px;
+  }
+  .support { margin-top: 20px; font-size: 14px; color: #546e7a; text-align: center; line-height: 1.6; }
+  footer { text-align: center; color: #78909c; font-size: 13px; padding: 0 14px 30px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Songlap Deals</div>
+  <h1>Puzzle Book Generator</h1>
+  <p>Your personal license delivery page</p>
+</header>
+
+<main>
+  <div class="card">
+
+    <!-- Shown when the page is opened without a sale (no API call is made) -->
+    <div id="state-notice" class="hidden">
+      <h2>Welcome, buyer! 👋</h2>
+      <p>This is the delivery page for <strong>Puzzle Book Generator</strong> buyers.</p>
+      <p>Please open it from your WarriorPlus purchase — use the access link in your WarriorPlus library or on your purchase receipt, and this page will show your personal license code automatically.</p>
+      <p>If you bought Puzzle Book Generator and reached this page by mistake, email us at <strong>klankhan451@gmail.com</strong> with your WarriorPlus transaction ID and we will send your code.</p>
+    </div>
+
+    <!-- Shown while the claim request is running -->
+    <div id="state-loading" class="hidden center">
+      <div class="spinner"></div>
+      <h2>Preparing your personal license code…</h2>
+      <p>One moment — we are reserving a code just for you.</p>
+    </div>
+
+    <!-- Shown when the code is ready -->
+    <div id="state-success" class="hidden">
+      <h2>✅ Your license is ready</h2>
+      <p>Here is your personal license code:</p>
+      <div class="code-box" id="license-code">—</div>
+      <div class="copy-wrap">
+        <button class="btn btn-teal btn-small" id="copy-btn" type="button">Copy code</button>
+        <div class="copy-note" id="copy-note"></div>
+      </div>
+      <p class="licensed-to">Licensed to: <strong id="licensed-name">—</strong></p>
+      <a class="btn btn-gold" href="https://samratkhanov-tech.github.io/pbg-studio-x9k7/">Open Puzzle Book Generator</a>
+      <ol class="steps">
+        <li>Open the tool with the button above.</li>
+        <li>Type your name <strong>exactly as shown above</strong> and paste your code.</li>
+        <li>Your code is registered to your name only — please keep it private.</li>
+      </ol>
+      <div class="note">🔖 <strong>Bookmark this page</strong> — if you ever lose your code, opening this same delivery link shows it again.</div>
+    </div>
+
+    <!-- Shown on any error -->
+    <div id="state-error" class="hidden center">
+      <h2>Something went wrong 😔</h2>
+      <p>We could not prepare your license code just now. This is usually temporary — please try again in a moment.</p>
+      <button class="btn btn-gold" id="retry-btn" type="button">Retry</button>
+      <p style="margin-top:14px;">Still not working? Email us at <strong>klankhan451@gmail.com</strong> with your WarriorPlus transaction ID and we will send your code by email.</p>
+    </div>
+
+    <p class="support">Support: klankhan451@gmail.com<br>Thank you for your purchase! — Songlap Deals</p>
+  </div>
+</main>
+
+<footer>© Songlap Deals · Puzzle Book Generator · Personal license — one buyer, one code.</footer>
+
+<script>
+(function () {
+  var API_URL = "https://script.google.com/macros/s/AKfycbwJSkfTRL2vwv2idTHUSGqUoEMt2euOYUV_yGE49X3Mlzce0T9ikqPDptIys0wpdDZ1kQ/exec";
+
+  var params = new URLSearchParams(window.location.search);
+  var saleId = (params.get("sale_id") || "").trim();
+  var buyerName = (params.get("name") || "").trim();
+  var buyerEmail = (params.get("email") || "").trim();
+
+  function show(id) {
+    ["state-notice", "state-loading", "state-success", "state-error"].forEach(function (s) {
+      document.getElementById(s).classList.toggle("hidden", s !== id);
+    });
+  }
+
+  function claim() {
+    show("state-loading");
+    fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({ action: "claim", sale_id: saleId, name: buyerName, email: buyerEmail })
+    })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data && data.ok && data.code) {
+          document.getElementById("license-code").textContent = data.code;
+          document.getElementById("licensed-name").textContent = data.name || buyerName;
+          show("state-success");
+        } else {
+          show("state-error");
+        }
+      })
+      .catch(function () { show("state-error"); });
+  }
+
+  document.getElementById("retry-btn").addEventListener("click", claim);
+
+  document.getElementById("copy-btn").addEventListener("click", function () {
+    var code = document.getElementById("license-code").textContent;
+    var note = document.getElementById("copy-note");
+    function done() { note.textContent = "Copied! ✓"; }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(done).catch(function () { fallback(); });
+    } else {
+      fallback();
+    }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); done(); }
+      catch (e) { note.textContent = "Please copy the code manually."; }
+      document.body.removeChild(ta);
+    }
+  });
+
+  if (!saleId) {
+    show("state-notice");
+  } else {
+    claim();
+  }
+})();
+</script>
+
+</body>
+</html>
